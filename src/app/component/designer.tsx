@@ -20,72 +20,71 @@ const CardText = () => {
 
   useEffect(() => {
     const fetchSanityData = async () => {
-      const result = await sanityfetch({query: four});
+      const result = await sanityfetch({ query: four });
       setProducts(result);
     };
     fetchSanityData();
   }, []);
 
-
   return (
-    <div className="lg:mt-[350px] w-full rounded-[5px] absolute top-[1750px] border bg-white max-sm:mt-[-100px]">
-      <div className="mx-auto w-full max-w-[1400px] flex flex-col justify-evenly p-5 sm:p-10">
+    <div className="lg:mt-[350px] w-full rounded-[8px] absolute top-[1750px] border bg-white shadow-lg max-sm:mt-[-100px]">
+      <div className="mx-auto w-full max-w-[1400px] flex flex-col justify-evenly p-6 sm:p-12">
         {/* Title Section */}
-        <div className="w-full flex flex-col justify-center items-center text-center mb-8">
-          <h4 className="font-Montserrat font-normal lg:text-[20px] sm:text-[20px] leading-[24px] sm:leading-[30px] text-[#737373]">
+        <div className="w-full flex flex-col justify-center items-center text-center mb-10">
+          <h4 className="font-Montserrat font-medium lg:text-[22px] sm:text-[20px] text-gray-500">
             Featured Products
           </h4>
-          <h3 className="font-Montserrat font-bold lg:text-[28px] sm:text-[24px] leading-[28px] sm:leading-[32px] text-[#252B42]">
+          <h3 className="font-Montserrat font-extrabold lg:text-[30px] sm:text-[26px] text-gray-800">
             BESTSELLER PRODUCTS
           </h3>
-          <p className="font-Montserrat font-normal lg:text-[17px] leading-[20px] text-[#737373]">
+          <p className="font-Montserrat font-normal lg:text-[18px] text-gray-500">
             Problems trying to resolve the conflict between
           </p>
         </div>
 
         {/* Products Section */}
-        <div className="w-full flex flex-wrap justify-center gap-6">
+        <div className="w-full flex flex-wrap justify-center gap-8">
           {/* Product Cards */}
           {products.length === 0 ? (
-            <p>Loading products...</p>
+            <p className="text-center text-gray-600">Loading products...</p>
           ) : (
             products.map((product) => (
               <div
                 key={product._id}
-                className="w-full sm:w-[238px] md:w-[250px] lg:w-[300px] flex flex-col items-center mb-8 bg-[#f8f9fa] rounded-lg p-4 shadow-md"
+                className="w-full sm:w-[250px] md:w-[270px] lg:w-[320px] flex flex-col items-center mb-8 bg-white rounded-xl p-5 shadow-lg hover:shadow-2xl transition duration-300"
               >
                 {/* Image */}
-                <div className="w-[239px] h-[427px] flex justify-center overflow-hidden mb-4">
+                <div className="w-[250px] h-[400px] flex justify-center overflow-hidden mb-4 rounded-lg bg-gray-100">
                   {product.productImage ? (
                     <Image
                       src={product.productImage}
                       alt={product.title}
-                      className="w-full h-full object-contain rounded"
-                      width={239}
-                      height={427}
+                      className="w-full h-full object-cover rounded-lg"
+                      width={250}
+                      height={400}
                     />
                   ) : (
-                    <div>No Image Available</div>
+                    <div className="text-gray-400">No Image Available</div>
                   )}
                 </div>
 
                 {/* Text Section */}
                 <div className="w-full text-center">
-                  <h5 className="font-Montserrat font-bold text-[16px] leading-[24px] text-[#252B42]">
+                  <h5 className="font-Montserrat font-semibold text-[18px] text-gray-800">
                     {product.title}
                   </h5>
-                  <div className="flex justify-center gap-2 mt-2">
-                    <h5 className="font-Montserrat font-bold text-[16px] text-[#BDBDBD] line-through">
+                  <div className="flex justify-center gap-3 mt-2">
+                    <h5 className="font-Montserrat font-medium text-[16px] text-gray-400 line-through">
                       ${product.discountPercentage}
                     </h5>
-                    <h5 className="font-Montserrat font-bold text-[16px] text-[#23856D]">
+                    <h5 className="font-Montserrat font-bold text-[18px] text-green-600">
                       ${product.price}
                     </h5>
                   </div>
 
                   {/* View Details Button */}
                   <Link href={`/product/${product._id}`}>
-                    <button className="mt-4 w-full lg:w-auto bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 px-8 rounded-lg shadow-lg hover:from-blue-400 hover:to-purple-400 transition duration-300 focus:outline-none">
+                    <button className="mt-5 w-full lg:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-10 rounded-lg shadow-lg hover:from-blue-500 hover:to-purple-500 transition duration-300 focus:outline-none transform hover:scale-105">
                       View Details
                     </button>
                   </Link>
