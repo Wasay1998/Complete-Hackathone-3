@@ -1,0 +1,8 @@
+Test Case ID,Test Case Description,Test Steps,Expected Result,Actual Result,Status,Remarks
+TC001,Validate Home Page Load,Open website URL > Verify all elements,Home page loads with all elements visible,Home page loads correctly,Passed,No issues found
+TC002,Navigation to Shop Page,Click on 'Shop' > Check product listings,Shop page loads with products displayed,Shop page loads but sometimes delays in products,Passed,Products take time to load
+TC003,Validate Search Functionality,Enter product name in search bar > Click search,Relevant products should appear in results,Search bar works correctly,Passed,Search function is working fine
+TC004,Test Add to Cart Functionality,Click 'Add to Cart' on a product > Check Cart,Cart updates and shows added product,Cart updates successfully,Passed,Cart functionality works well
+TC005,Ensure Mobile Responsiveness,Resize browser window > Check layout,Layout should adjust properly to screen size,Responsive design works well,Passed,Mobile layout adjusts correctly
+TC006,Test External Links Functionality,Click on social media links > Verify redirection,External links should open correct pages,Social media links work correctly,Passed,External links redirect properly
+TC007,Performance Optimization Check,Run Lighthouse test > Check performance scores,Website should score above 90 in Lighthouse,"Lighthouse score: Mobile - 89, Desktop - 100",Passed,Performance scores are good
